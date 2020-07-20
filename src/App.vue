@@ -4,6 +4,7 @@
       <router-view>
           <LoginViewComponent />
           <RegisterViewComponent />
+          <HomeViewComponent />
       </router-view>
   </v-app>
 </template>
@@ -13,9 +14,11 @@
 import NavigationComponent from "./components/NavigationComponent/NavigationComponent";
 import LoginViewComponent from "./views/LoginViewComponent";
 import RegisterViewComponent from "./views/RegisterViewComponent";
+import HomeViewComponent from "./views/HomeViewComponent";
 export default {
   name: 'App',
   components: {
+      HomeViewComponent,
       LoginViewComponent,
       NavigationComponent,
       RegisterViewComponent
@@ -28,5 +31,9 @@ export default {
     }
     a:visited{
         color:white;
+    }
+    body{
+        overflow: no-display;
+        overflow: hidden;
     }
 </style>

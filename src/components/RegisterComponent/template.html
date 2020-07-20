@@ -1,30 +1,54 @@
 <v-content>
-    <v-card elevation="9" width="500" class="mx-auto mt-5">
+
+    <v-card width="500" class="mx-auto mt-5">
+        <v-alert
+                dismissible
+                type="success"
+                border="left"
+                text
+                v-if="success"
+        >
+            Congratulation! <br> You have successfully registered!
+        </v-alert>
+        <v-alert
+                dismissible
+                type="error"
+                border="left"
+                text
+                v-if="error"
+        >
+            Account with username {{this.username}} already exists
+        </v-alert>
     <v-card-title class="justify-center primary">
         <h3 class="display-1 white--text">Register</h3>
     </v-card-title>
     <v-spacer></v-spacer>
         <v-card-text>
-            <v-form>
+            <v-form ref="form" lazy-validation>
                 <v-text-field
-                        label="First Name"
+                        label="First name"
                         prepend-icon="mdi-account-circle"
                         v-model="firstname"
+                        :rules="firstnameRules"
                 />
                 <v-text-field
-                        label="Last Name"
+                        label="Last name"
                         prepend-icon="mdi-account-circle"
                         v-model="lastname"
+                        :rules="lastnameRules"
                 />
                 <v-text-field
                         label="Username"
                         prepend-icon="mdi-account-outline"
                         v-model="username"
+                        :rules="usernameRules"
+                        :counter="30"
                 />
                 <v-text-field
                         label="Email"
                         prepend-icon="mdi-email-outline"
                         v-model="email"
+                        :rules="emailRules"
                 />
                 <v-text-field
                         label="Password"
@@ -33,12 +57,16 @@
                         :type="showPassword ? 'text' : 'password'"
                         @click:append="showPassword  = !showPassword"
                         v-model="password"
+                        :counter="30"
+                        :rules="passwordRules"
                 />
                 <v-text-field
-                        label="Repeat Password"
+                        label="Confirm password"
                         prepend-icon="mdi-lock"
                         type="password"
                         v-model="passwordRepeat"
+                        :counter="30"
+                        :rules="passwordConfirmRules"
                 />
             </v-form>
         </v-card-text>
@@ -48,4 +76,5 @@
             <v-btn color="primary" @click="register">Register</v-btn>
         </v-card-actions>
     </v-card>
+
 </v-content>
