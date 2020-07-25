@@ -32,8 +32,4 @@ export default {
     a:visited{
         color:white;
     }
-    body{
-        overflow: no-display;
-        overflow: hidden;
-    }
 </style>

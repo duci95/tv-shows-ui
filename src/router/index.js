@@ -21,10 +21,13 @@ Vue.use(VueRouter);
         },
         {
             component: HomeViewComponent,
-            name: "HomeViewComponent",
-            path: "/home"
+            name: 'HomeViewComponent',
+            path: '/home',
+        },
+        {
+            path: '/',
+            redirect:'/home'
         }
-
     ]
 
 const router = new VueRouter({

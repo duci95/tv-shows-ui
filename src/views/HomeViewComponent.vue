@@ -1,5 +1,7 @@
 <template>
-    <SeriesComponent />
+    <v-content>
+        <SeriesComponent />
+    </v-content>
 </template>
 
 <script>

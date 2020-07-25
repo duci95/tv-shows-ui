@@ -12,11 +12,11 @@
         created() {
             this.series = ApiService.apiClient.get('/shows')
                 .then(response => {
-                    console.log(response.data);
+                    //treba odraditi pomocu store 
+                    this.series = response.data.intel;
                 })
                 .catch(_ => {
                 });
         }
     }
 </script>
-
