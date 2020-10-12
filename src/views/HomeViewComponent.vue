@@ -1,15 +1,18 @@
 <template>
-    <v-content>
+    <v-main>
         <SeriesComponent />
-    </v-content>
+        <CategoriesComponent />
+    </v-main>
 </template>
 
 <script>
     import SeriesComponent from "../components/SeriesComponent/SeriesComponent";
+    import CategoriesComponent from "../components/CategoriesComponent/CategoriesComponent";
     export default {
         name: "HomeViewComponent",
         components: {
-            SeriesComponent
+            SeriesComponent,
+            CategoriesComponent
         },
     }
 </script>

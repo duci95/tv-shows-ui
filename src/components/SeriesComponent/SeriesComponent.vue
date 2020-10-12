@@ -10,13 +10,13 @@
             series : []
         }),
         created() {
-            this.series = ApiService.apiClient.get('/shows')
-                .then(response => {
-                    //treba odraditi pomocu store 
-                    this.series = response.data.intel;
-                })
-                .catch(_ => {
-                });
+            // this.series = ApiService.apiClient.get('/shows')
+            //     .then(response => {
+            //         //treba odraditi pomocu store
+            //         this.series = response.data.intel;
+            //     })
+            //     .catch(_ => {
+            //     });
         }
     }
 </script>
