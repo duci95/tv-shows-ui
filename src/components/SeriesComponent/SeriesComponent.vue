@@ -7,16 +7,41 @@
     export default {
         name: "SeriesComponent",
         data: () => ({
-            series : []
+            series : [],
+            totalCount : null,
+            totalPages : null,
+            pagination:{
+                currentPage: 1,
+                perPage:1
+            }
         }),
+        methods:{
+            getSeries(){
+                ApiService.apiClient.get('/shows',{
+                    params :{
+                        pageNumber: this.pagination.currentPage,
+						perPage: this.pagination.perPage
+					}
+				})
+                    .then(response => {
+                        //treba odraditi pomocu store
+                        this.series = response.data.intel;
+                        this.totalCount = response.data.totalCount;
+                        this.totalPages = response.data.pagesCount;
+                    })
+                    .catch(_ => {
+                    });
+            },
+            changePage(page){
+                this.pagination.currentPage = page;
+                this.getSeries();
+            }
+        },
+        computed:{
+
+        },
         created() {
-            // this.series = ApiService.apiClient.get('/shows')
-            //     .then(response => {
-            //         //treba odraditi pomocu store
-            //         this.series = response.data.intel;
-            //     })
-            //     .catch(_ => {
-            //     });
+            this.getSeries();
         }
     }
 </script>

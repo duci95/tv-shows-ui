@@ -1,9 +1,27 @@
 <v-main>
-    <v-card v-for="serie in series" >
-        <p>{{serie.title}}</p>
-        <p>{{serie.body}}</p>
-        <p>{{serie.about}}</p>
-        <p>{{serie.likes}}</p>
-        <p>{{serie.dislikes}}</p>
+    <v-card v-for="serie in series" width="500">
+        <v-card-title>
+            {{serie.title}}
+        </v-card-title>
+
+        <v-card-subtitle>
+            {{serie.about}}
+        </v-card-subtitle>
+        <v-card-actions>
+            {{serie.body}}
+        </v-card-actions>
+        <v-card-actions>
+            <v-spacer>
+                {{serie.likes}}
+            </v-spacer>
+            {{serie.dislikes}}
+        </v-card-actions>
+
     </v-card>
+    <v-pagination
+            :length="totalPages"
+            v-model="pagination.currentPage"
+            @input="changePage(pagination.currentPage)"
+    >
+    </v-pagination>
 </v-main>

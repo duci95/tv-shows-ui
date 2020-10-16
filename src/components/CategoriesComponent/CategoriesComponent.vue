@@ -2,6 +2,7 @@
 <style scoped src="./style.css"></style>
 <script>
     export default {
-        name: "CategoriesComponent"
+        name: "CategoriesComponent",
+
     }
 </script>
