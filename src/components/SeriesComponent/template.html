@@ -1,27 +1,46 @@
-<v-main>
-    <v-card v-for="serie in series" width="500">
-        <v-card-title>
-            {{serie.title}}
-        </v-card-title>
+<v-container>
+    <v-row >
+        <v-col cols="2"  >
+            <v-select
+                    dense
+                    label="Items per page"
+                    item-text="Items per page"
+                    :items="perPageSelect"
+                    v-model="pagination.perPage"
+                    chips
+                    @change="getSeries()"
+                    class="selectPerPage"
+            >
+            </v-select>
+        </v-col>
+    </v-row>
+    <v-row   align-content="end">
+        <v-col align-self="center" v-for="serie in series"  cols="6">
+            <v-card >
+                <v-card-title>
+                    {{serie.title}}
+                </v-card-title>
+                <v-card-subtitle>
+                    {{serie.about}}
+                </v-card-subtitle>
+                <v-card-actions>
+                    {{serie.body}}
+                </v-card-actions>
+                <v-card-actions>
+                    <v-spacer>
+                        {{serie.likes}}
+                    </v-spacer>
+                    {{serie.dislikes}}
+                </v-card-actions>
+            </v-card>
+        </v-col>
+    </v-row>
 
-        <v-card-subtitle>
-            {{serie.about}}
-        </v-card-subtitle>
-        <v-card-actions>
-            {{serie.body}}
-        </v-card-actions>
-        <v-card-actions>
-            <v-spacer>
-                {{serie.likes}}
-            </v-spacer>
-            {{serie.dislikes}}
-        </v-card-actions>
-
-    </v-card>
     <v-pagination
             :length="totalPages"
             v-model="pagination.currentPage"
             @input="changePage(pagination.currentPage)"
     >
     </v-pagination>
-</v-main>
+
+</v-container>

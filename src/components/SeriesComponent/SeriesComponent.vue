@@ -12,8 +12,9 @@
             totalPages : null,
             pagination:{
                 currentPage: 1,
-                perPage:1
-            }
+                perPage:5
+            },
+			perPageSelect : [5,10,15]
         }),
         methods:{
             getSeries(){
@@ -36,9 +37,6 @@
                 this.pagination.currentPage = page;
                 this.getSeries();
             }
-        },
-        computed:{
-
         },
         created() {
             this.getSeries();
